@@ -3,12 +3,15 @@
 # Started: 02/13/14
 # v1 Finished: ?
 
-import pygame, random, sys
+import sys
+
+import pygame
 from pygame.locals import *
 
-#-----------
+
+# ----------
 # Constants
-#-----------
+# ----------
 
 # Frames per second
 FPS = 30
@@ -17,42 +20,45 @@ FPS = 30
 WINDOWWIDTH = 1200
 WINDOWHEIGTH = 700
 
-#------
+# -----
 # Main
-#------
+# -----
+
 
 def main():
     # Init pygame
     pygame.init()
 
     # Set up global variables
-    global FPSCLOCK, DISPLAYSURF, BASICFONT
+    global FPSCLOCK, DISPLAYSURF  # , BASICFONT
     FPSCLOCK = pygame.time.Clock()
     DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGTH))
-    BASICFONT = pygame.font.Font('freesansbold.ttf ', 18)
+    # BASICFONT = pygame.font.Font('freesansbold.ttf ', 18)
 
     # Set window caption
     pygame.display.set_caption('Relic')
 
     # Game Loop
     while True:
-        showStartScreen()
-        runGame()
-        showGameOverScreen()
+        showstartscreen()
+        rungame()
+        showgameoverscreen()
+
 
 # The main game loop that runs the game logic
-def runGame():
+def rungame():
     while True:
-        checkForQuit()
+        checkforquit()
 
         # ...
         # Update display
         pygame.display.update()
         FPSCLOCK.tick(FPS)
 
-#---------
+# --------
 # Methods
-#---------
+# --------
+
 
 # Terminates the program
 def terminate():
@@ -61,7 +67,7 @@ def terminate():
 
 
 # Checks for quit
-def checkForQuit():
+def checkforquit():
     for event in pygame.event.get(QUIT):
         terminate()
     for event in pygame.event.get(KEYUP):
@@ -71,14 +77,14 @@ def checkForQuit():
 
 
 # Shows the start screen
-def showStartScreen():
-    pass # Finish
+def showstartscreen():
+    pass  # Finish
 
 
 # Shows the game over screen
-def showGameOverScreen():
-    pass # Finish
+def showgameoverscreen():
+    pass  # Finish
 
-#--------------------------
+# -------------------------
 if __name__ == '__main__':
     main()
